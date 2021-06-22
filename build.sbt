@@ -23,13 +23,20 @@ lazy val scalaTest = "org.scalatest" %% "scalatest" % scalaTestVersion
 
 lazy val root = project
   .in(file("."))
+  .enablePlugins(JmhPlugin)
   .settings(name := "algorithms", moduleName := "algorithms")
   .settings(noPublish, compilation)
   .settings(
-    libraryDependencies ++= Seq(
+    libraryDependencies      ++= Seq(
       catsCore,
       scalaTest % Test
-    )
+    ),
+    Jmh / sourceDirectory     := (Test / sourceDirectory).value,
+    Jmh / classDirectory      := (Test / classDirectory).value,
+    Jmh / dependencyClasspath := (Test / dependencyClasspath).value,
+    Jmh / compile             := (Jmh / compile).dependsOn(Test / compile).value,
+    Jmh / run                 := (Jmh / run).dependsOn(Jmh / Keys.compile).evaluated,
+    Test / fork               := true
   )
 
 lazy val noPublish = Seq(publishLocal := {}, publish := {}, publishArtifact := false)

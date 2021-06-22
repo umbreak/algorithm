@@ -16,9 +16,9 @@ class SortSpec extends AnyFlatSpecLike with Matchers with SortSpecBehaviours {
 object SortSpec {
 
   trait SortSpecBehaviours extends Matchers { this: AnyFlatSpecLike =>
-    val arraySize: Int = 1000
+    val arraySize: Int        = 1000
     val sortedArr: Array[Int] = (0 until arraySize).toArray
-    val array: Array[Int] = Random.shuffle((0 until arraySize).toList).toArray
+    val array: Array[Int]     = Random.shuffle((0 until arraySize).toList).toArray
 
     def sortingAlgorithm[A: Ordering](sort: Sort, array: Array[A], algorithm: String): Unit = {
       it should s"be sorted using $algorithm" in {
