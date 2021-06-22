@@ -10,6 +10,8 @@ Scala implementation of algorithms explained on the Coursera Algorithms course.
 jmh:run
 
 ```
+
+```
 [info] Benchmark                                     Mode  Cnt   Score    Error  Units
 [info] SortBenchmarks.immutableInsertionSort10000   thrpt    5   5.877 ±  0,077  ops/s
 [info] SortBenchmarks.mutableInsertionSort10000     thrpt    5  14.628 ±  0,046  ops/s
@@ -20,6 +22,8 @@ jmh:run
 [info] SortBenchmarks.mutableSelectionSort10000     thrpt    5  14.644 ±  0,081  ops/s
 [info] SortBenchmarks.immutableSelectionSort100000  thrpt    5   0.024 ±  0,001  ops/s
 [info] SortBenchmarks.mutableSelectionSort100000    thrpt    5   0,158 ±  0,001  ops/s
+```
 
-Mutable insertion sort is ~ 2.5 times faster than the immutable implementation
-Mutable selection sort is ~ 5.7 times faster than the immutable implementation
+Mutable insertion sort is ~ 2.5 times faster than the immutable implementation.
+
+Mutable selection sort is ~ 5.7 times faster than the immutable implementation.
